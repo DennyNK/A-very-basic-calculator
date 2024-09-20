@@ -7,23 +7,38 @@
 
     <title>A VERY BASIC CALCULATOR BY DENNY</title>
 
+    <style>
+        input, select, button {
+            display: block;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .equals-sign {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+
 </head>
 
 <body>
 
-    <input type="text" id="num1" placeholder="Enter number" />
+    <div><input type="text" id="num1" placeholder="Enter number" /></div>
 
-    <select id="operation">
+
+    <div></div><select id="operation">
         <option value="+">+</option>
         <option value="-">-</option>
         <option value="*">*</option>
         <option value="/">/</option>
 
-    </select>
+    </select></div>
 
-    <input type="text" id="num2" placeholder="Enter number" /> =
-    <input type="text" id="sum" readonly="readonly" placeholder="Result" />
-    <input type="button" value="Calculate" onclick="calc()" />
+    <div><input type="text" id="num2" placeholder="Enter number" /></div>
+    <div class="equals-sign"> = </div>
+    <div><input type="text" id="sum" readonly="readonly" placeholder="Result" /> </div>
+    <div><input type="button" value="Calculate" onclick="calc()" /></div>
 
     <script>
         function calc() {
