@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A VERY BASIC CALCULATOR BY DENNY</title>
+
+</head>
+
+<body>
+
+    <input type="text" id="num1" placeholder="Enter number" />
+
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+
+    </select>
+
+    <input type="text" id="num2" placeholder="Enter number" /> =
+    <input type="text" id="sum" readonly="readonly" placeholder="Result" />
+    <input type="button" value="Calculate" onclick="calc()" />
+
+    <script>
+        function calc() {
+    let a = document.getElementById("num1").value;
+    let b = document.getElementById("num2").value;
+    let oper = document.getElementById("operation").value;
+
+    let sum = "";
+
+    if (isNaN(a) || isNaN(b)) {
+        alert("Enter valid numbers for both inputs, my friend");
+        return;
+    }
+
+    switch (oper) {
+        case "+":
+            sum = Number(a) + Number(b);
+            break;
+
+        case "-":
+            sum = Number(a) - Number(b);
+            break;
+
+        case "*":
+            sum = (Number(a) * Number(b)).toFixed(2);
+            break;
+
+        case "/":
+            if (b == 0) {
+                alert("Cannot divide by zero, babe")
+            }
+            sum = (Number(a) / Number(b)).toFixed(2);
+            break;
+
+        default:
+            alert("Insert a valid operation, comrade: + - * /")
+            return;
+    }
+
+
+
+    document.getElementById("sum").value = sum;
+
+}
+
+    </script>
+</body>
+
+
+
+
+</html>
