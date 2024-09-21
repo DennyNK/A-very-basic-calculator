@@ -8,10 +8,45 @@
     <title>A VERY BASIC CALCULATOR BY DENNY</title>
 
     <style>
+
+        body {
+            font-family: sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .light-theme {
+            background-color:cornsilk;
+            color: #000
+        }
+
+        .dark-theme{
+            background-color: #333;
+            color: #fff
+        }
+
         input, select, button {
             display: block;
             margin-bottom: 20px;
             padding: 10px;
+            width: 200px;
+            transition: background-color 0.3s ease, color 0.3 ease;
+        }
+
+        .light-theme input, .light-theme select, .light-theme button {
+            background-color:white;
+            color: #000;
+            border: 1px solid #ccc;
+        }
+
+        .dark-theme input, .dark-theme select, .dark-theme button{
+            background-color: #555;
+            color:#FFFFFF;
+            border: 1px solid #ccc
+        }
+
+        theme-toggle{
+            margin-top: 20px;
+            cursor: pointer;
         }
 
         .equals-sign {
@@ -39,52 +74,12 @@
     <div class="equals-sign"> = </div>
     <div><input type="text" id="sum" readonly="readonly" placeholder="Result" /> </div>
     <div><input type="button" value="Calculate" onclick="calc()" /></div>
+    <div><input type="button" value="Clear" onclick="clear()"/></div>
+    <button class="theme-toggle" onclick="toggleTheme()">Dark/Light Theme</button>
 
-    <script>
-        function calc() {
-    let a = document.getElementById("num1").value;
-    let b = document.getElementById("num2").value;
-    let oper = document.getElementById("operation").value;
-
-    let sum = "";
-
-    if (isNaN(a) || isNaN(b)) {
-        alert("Enter valid numbers for both inputs, my friend");
-        return;
-    }
-
-    switch (oper) {
-        case "+":
-            sum = Number(a) + Number(b);
-            break;
-
-        case "-":
-            sum = Number(a) - Number(b);
-            break;
-
-        case "*":
-            sum = (Number(a) * Number(b)).toFixed(2);
-            break;
-
-        case "/":
-            if (b == 0) {
-                alert("Cannot divide by zero, babe")
-            }
-            sum = (Number(a) / Number(b)).toFixed(2);
-            break;
-
-        default:
-            alert("Insert a valid operation, comrade: + - * /")
-            return;
-    }
-
-
-
-    document.getElementById("sum").value = sum;
-
-}
-
-    </script>
+    <script src="calc.js"></script>
+    <script src="clearCalc.js"></script>
+    <script src="toggleTheme.js"></script>
 </body>
 
 
